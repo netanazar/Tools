@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube SEO & Hashtag Generator</title>
+    <meta name="description" content="Generate SEO keywords and hashtags for YouTube videos. Improve your video discoverability with optimized tags.">
+    <style>
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: #f0f2f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            color: #ff0000;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        /* Form Styles */
+        .generator-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #cc0000;
+        }
+
+        /* Results Section */
+        .results-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .result-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .result-card h3 {
+            color: #ff0000;
+            margin-bottom: 1rem;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: #f0f2f5;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .tag:hover {
+            background: #ff0000;
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .results-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>YouTube SEO Generator</h1>
+            <p>Boost your video visibility with optimized keywords and hashtags</p>
+        </header>
+
+        <div class="generator-form">
+            <div class="input-group">
+                <input type="text" id="keywordInput" placeholder="Enter your main keyword (e.g., video editing tips)">
+            </div>
+            <button onclick="generateTags()">Generate Tags</button>
+        </div>
+
+        <div class="results-section">
+            <div class="result-card">
+                <h3>SEO Keywords</h3>
+                <div class="tags-container" id="seoKeywords"></div>
+            </div>
+            <div class="result-card">
+                <h3>Hashtags</h3>
+                <div class="tags-container" id="hashtags"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // SEO Keyword Generator
+        function generateSEOKeywords(keyword) {
+            const modifiers = [
+                'best', 'how to', 'tutorial', 'guide', '2023',
+                'tips', 'tricks', 'secret', 'ultimate', 'complete',
+                'beginner', 'advanced', 'step by step', 'quick',
+                'easy', 'pro', 'mistakes', 'strategies', 'hacks'
+            ];
+
+            const keywordParts = keyword.toLowerCase().split(' ');
+            const generatedKeywords = new Set();
+
+            // Generate keyword variations
+            modifiers.forEach(modifier => {
+                generatedKeywords.add(`${modifier} ${keyword}`);
+                generatedKeywords.add(`${keyword} ${modifier}`);
+                keywordParts.forEach(part => {
+                    generatedKeywords.add(`${modifier} ${part}`);
+                });
+            });
+
+            return Array.from(generatedKeywords).slice(0, 15);
+        }
+
+        // Hashtag Generator
+        function generateHashtags(keyword) {
+            const baseHashtags = [
+                '#YouTubeSEO', '#VideoMarketing', '#ContentCreation',
+                '#DigitalMarketing', '#SocialMediaTips', '#ViralVideo',
+                '#YouTuber', '#ContentCreator', '#VideoProduction'
+            ];
+
+            const keywordHashtags = keyword.toLowerCase()
+                .split(' ')
+                .map(word => `#${word.replace(/[^a-z0-9]/g, '')}`);
+
+            return [...new Set([...keywordHashtags, ...baseHashtags])].slice(0, 10);
+        }
+
+        // Main Generator Function
+        function generateTags() {
+            const mainKeyword = document.getElementById('keywordInput').value.trim();
+            if (!mainKeyword) {
+                alert('Please enter a keyword');
+                return;
+            }
+
+            // Generate and display SEO keywords
+            const seoKeywords = generateSEOKeywords(mainKeyword);
+            const keywordsContainer = document.getElementById('seoKeywords');
+            keywordsContainer.innerHTML = seoKeywords
+                .map(keyword => `<div class="tag">${keyword}</div>`)
+                .join('');
+
+            // Generate and display hashtags
+            const hashtags = generateHashtags(mainKeyword);
+            const hashtagsContainer = document.getElementById('hashtags');
+            hashtagsContainer.innerHTML = hashtags
+                .map(hashtag => `<div class="tag">${hashtag}</div>`)
+                .join('');
+
+            // Add copy functionality
+            document.querySelectorAll('.tag').forEach(tag => {
+                tag.addEventListener('click', () => {
+                    navigator.clipboard.writeText(tag.innerText)
+                        .then(() => {
+                            tag.style.background = '#4CAF50';
+                            setTimeout(() => {
+                                tag.style.background = '#f0f2f5';
+                            }, 1000);
+                        });
+                });
+            });
+        }
+    </script>
+</body>
+</html>
