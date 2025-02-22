@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Name - Innovating Tools and Software Solutions</title>
+  <meta name="description" content="Company Name is a leading provider of innovative tools and software solutions. Explore our products and stay updated with our blog.">
+  <meta name="keywords" content="software, tools, innovation, productivity, solutions, business tools">
+  <meta name="author" content="Company Name">
+  <meta property="og:title" content="Company Name - Innovating Tools and Software Solutions">
+  <meta property="og:description" content="Your partner in innovation and technology.">
+  <meta property="og:image" content="https://yourwebsite.com/hero-image.jpg">
+  <meta property="og:url" content="https://yourwebsite.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+      background: #f9f9f9;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 1rem;
+      text-align: center;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(45deg, #007BFF, #00C6FF);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(45deg, #0056b3, #0099CC);
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      background: #6c757d;
+      color: #fff;
+    }
+
+    .btn-secondary:hover {
+      background: #5a6268;
+      transform: translateY(-3px);
+    }
+
+    /* Header */
+    header {
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #007BFF;
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-menu li a {
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-menu li a:hover {
+      color: #007BFF;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #007BFF, #00C6FF);
+      color: #fff;
+      padding: 150px 0;
+      text-align: center;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+
+    .hero-section h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero-section p {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      animation: fadeIn 2.5s ease-in-out;
+    }
+
+    /* Features Section */
+    .features-section {
+      padding: 80px 0;
+    }
+
+    .features-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #007BFF;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #007BFF;
+    }
+
+    .feature-card p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* Products Section */
+    .products-section {
+      padding: 80px 0;
+      background: #f8f9fa;
+    }
+
+    .products-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #007BFF;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-card img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .product-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #007BFF;
+    }
+
+    .product-card p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* Footer */
+    footer {
+      background: #343a40;
+      color: #fff;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .footer-links {
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      margin: 0 15px;
+      color: #fff;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #007BFF;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #007BFF;
+    }
+
+    .newsletter input {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      margin-right: 10px;
+    }
+
+    .newsletter button {
+      padding: 10px 20px;
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .newsletter button:hover {
+      background: #0056b3;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .hero-section h1 {
+        font-size: 2.5rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <a href="#" class="logo">Company Name</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="container">
+      <h1>Welcome to Company Name</h1>
+      <p>Your partner in innovation and technology.</p>
+      <div class="cta-buttons">
+        <a href="#products" class="btn btn-primary">Explore Our Tools</a>
+        <a href="#contact" class="btn btn-secondary">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features-section">
+    <div class="container">
+      <h2>Why Choose Us?</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Innovative Solutions</h3>
+          <p>We provide cutting-edge tools and software to meet your needs.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Expert Team</h3>
+          <p>Our team of experts ensures quality and reliability.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Customer Support</h3>
+          <p>Dedicated support to help you every step of the way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="products-section">
+    <div class="container">
+      <h2>Our Tools and Software Solutions</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="product1.jpg" alt="Product 1" loading="lazy">
+          <h3>Product 1</h3>
+          <p>Description of Product 1</p>
+          <a href="/product1" class="btn btn-primary">Learn More</a>
+        </div>
+        <div class="product-card">
+          <img src="product2.jpg" alt="Product 2" loading="lazy">
+          <h3>Product 2</h3>
+          <p>Description of Product 2</p>
+          <a href="/product2" class="btn btn-primary">Learn More</a>
+        </div>
+        <div class="product-card">
+          <img src="product3.jpg" alt="Product 3" loading="lazy">
+          <h3>Product 3</h3>
+          <p>Description of Product 3</p>
+          <a href="/product3" class="btn btn-primary">Learn More</a>
+        </div>
+        <div class="product-card">
+          <img src="product4.jpg" alt="Product 4" loading="lazy">
+          <h3>Product 4</h3>
+          <p>Description of Product 4</p>
+          <a href="/product4" class="btn btn-primary">Learn More</a>
+        </div>
+        <div class="product-card">
+          <img src="product5.jpg" alt="Product 5" loading="lazy">
+          <h3>Product 5</h3>
+          <p>Description of Product 5</p>
+          <a href="/product5" class="btn btn-primary">Learn More</a>
+        </div>
+        <div class="product-card">
+          <img src="product6.jpg" alt="Product 6" loading="lazy">
+          <h3>Product 6</h3>
+          <p>Description of Product 6</p>
+          <a href="/product6" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/faqs">FAQs</a>
+      </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div class="newsletter">
+        <form id="newsletter-form">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+      <p>&copy; 2025 Company Name. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
